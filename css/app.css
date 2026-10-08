@@ -1,0 +1,87 @@
+/* Caça-Bug — aparência. Cores do Mini SK (escuro), letras legíveis no celular. */
+:root {
+  --bg: #0f1420; --card: #161d2e; --linha: #26304a; --txt: #e6ebf5; --muted: #93a0b8;
+  --acc: #7c8cff; --bom: #4ade80; --meio: #fbbf24; --ruim: #f87171;
+  --raio: 12px;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--txt); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+[hidden] { display: none !important; }
+code, pre { font-family: ui-monospace, "Cascadia Mono", Menlo, monospace; font-size: 12.5px; }
+code { background: #0b1019; padding: 1px 5px; border-radius: 5px; word-break: break-all; }
+
+#topo { display: flex; align-items: center; gap: 10px; padding: 10px 14px; padding-top: max(10px, env(safe-area-inset-top)); border-bottom: 1px solid var(--linha); background: #111827; }
+.logo { font-weight: 700; font-size: 16px; white-space: nowrap; }
+.chip { margin-left: auto; max-width: 60vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: #1e2740; color: var(--txt); border: 1px solid var(--linha); border-radius: 999px; padding: 5px 12px; font-size: 13px; }
+
+#corpo { flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; }
+.tela { padding: 14px; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.tela-ferr { max-width: none; padding: 0; height: 100%; gap: 0; }
+body.modo-ferramenta #corpo { overflow: hidden; }
+.ferr-barra { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--linha); background: #111827; flex-wrap: wrap; }
+#ferr-host { flex: 1; position: relative; min-height: 0; }
+.ferr-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+
+#abas { display: flex; border-top: 1px solid var(--linha); background: #111827; padding-bottom: env(safe-area-inset-bottom); }
+#abas button { flex: 1; background: none; border: 0; color: var(--muted); padding: 7px 2px 6px; font-size: 19px; display: flex; flex-direction: column; align-items: center; gap: 1px; }
+#abas button span { font-size: 11.5px; }
+#abas button.ativa { color: var(--txt); background: #1a2238; }
+
+.card { background: var(--card); border: 1px solid var(--linha); border-radius: var(--raio); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.card h3 { margin: 0; font-size: 16px; }
+h3.sub { margin: 6px 0 0; font-size: 15px; color: var(--muted); }
+.card.ativo { border-color: var(--acc); }
+.stack { display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; align-items: center; gap: 8px; }
+.row.wrap { flex-wrap: wrap; }
+.grow { flex: 1; min-width: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.vazio { text-align: center; color: var(--muted); padding: 28px 12px; border: 1px dashed var(--linha); border-radius: var(--raio); }
+.aviso { background: #2a2310; border: 1px solid #5c4a14; padding: 10px; border-radius: 10px; margin: 0; }
+.erro { color: var(--ruim); }
+
+.btn { background: #1e2740; color: var(--txt); border: 1px solid var(--linha); border-radius: 10px; padding: 9px 14px; font-size: 14px; cursor: pointer; }
+.btn.small { padding: 6px 10px; font-size: 13px; }
+.btn.primary { background: #3b46b8; border-color: #4d59d6; }
+.btn.danger { background: #3a1620; border-color: #6b2232; color: #fecaca; }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .5; }
+
+.tag { display: inline-block; font-size: 11.5px; padding: 1px 8px; border-radius: 999px; background: #22305a; color: #c7d2fe; white-space: nowrap; }
+.tag.laranja { background: #4a2f0f; color: #fed7aa; }
+
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.cartao-ferr { background: var(--card); color: var(--txt); border: 1px solid var(--linha); border-radius: var(--raio); padding: 14px 12px; text-align: left; display: flex; flex-direction: column; gap: 4px; position: relative; font-size: 14px; }
+.cartao-ferr .ic { font-size: 26px; }
+.cartao-ferr .tag { position: absolute; top: 8px; right: 8px; }
+
+.idx { border-top: 1px solid var(--linha); padding-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+.idx:first-of-type { border-top: 0; padding-top: 0; }
+.linha { font-size: 14px; margin: 0; }
+.linha.ruim { color: #fecaca; } .linha.meio { color: #fde68a; } .linha.bom { color: #bbf7d0; }
+
+.tabela-rolar { overflow-x: auto; }
+table.tab { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+table.tab th, table.tab td { border-bottom: 1px solid var(--linha); padding: 6px 8px; text-align: left; vertical-align: top; }
+table.tab td.c { text-align: center; }
+table.tab tr.dif td { background: #2a2310; }
+ul.lista { margin: 4px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 3px; font-size: 13.5px; }
+details summary { cursor: pointer; padding: 4px 0; }
+.chk-linha { display: flex; gap: 10px; align-items: flex-start; background: var(--card); border: 1px solid var(--linha); border-radius: 10px; padding: 10px; }
+.chk-linha input { width: 20px; height: 20px; margin-top: 2px; }
+pre.rel-texto { white-space: pre-wrap; word-break: break-word; background: #0b1019; border-radius: 8px; padding: 10px; max-height: 60vh; overflow: auto; margin: 0; }
+
+/* janelas e avisos (mesmos nomes do Mini SK) */
+.modal-wrap { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
+.modal { background: var(--card); border: 1px solid var(--linha); border-radius: 14px; padding: 16px; width: min(440px, 100%); display: flex; flex-direction: column; gap: 10px; }
+.modal h3 { margin: 0; }
+.modal p { margin: 0; }
+.row.end { justify-content: flex-end; }
+.inp { background: #0b1019; color: var(--txt); border: 1px solid var(--linha); border-radius: 8px; padding: 9px 10px; font-size: 15px; width: 100%; }
+.toast { position: fixed; left: 50%; bottom: 76px; transform: translateX(-50%) translateY(20px); opacity: 0; transition: .2s; background: #1e2740; border: 1px solid var(--linha); padding: 10px 14px; border-radius: 10px; z-index: 60; max-width: 92vw; pointer-events: none; font-size: 14px; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.error { border-color: #6b2232; background: #3a1620; }
+.toast.ok { border-color: #1f5c38; background: #12301f; }
+#ferr-titulo { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

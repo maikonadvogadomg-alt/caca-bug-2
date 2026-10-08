@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caça-Bug</title>
+<link rel="stylesheet" href="css/app.css">
+  <!-- PWA:inicio (gerado pelo Mini SK — pode refazer no painel 📱 PWA) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f1420">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Caça-Bug">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+      addEventListener('load', function () { navigator.serviceWorker.register('service-worker.js').catch(function (e) { console.warn('Service worker:', e); }); });
+    }
+  </script>
+  <!-- PWA:fim -->
+</head>
+<body>
+  <header id="topo">
+    <span class="logo">🐞 Caça-Bug</span>
+    <button id="topo-proj" class="chip" title="Projeto em uso (toque para trocar)">nenhum projeto</button>
+  </header>
+
+  <main id="corpo">
+    <section class="tela" data-tela="projetos" id="tela-projetos"></section>
+    <section class="tela" data-tela="diagnostico" id="tela-diagnostico" hidden></section>
+    <section class="tela" data-tela="ferramentas" id="tela-ferramentas" hidden></section>
+    <section class="tela" data-tela="comparar" id="tela-comparar" hidden></section>
+    <section class="tela" data-tela="relatorios" id="tela-relatorios" hidden></section>
+    <section class="tela tela-ferr" data-tela="ferramenta" hidden>
+      <div class="ferr-barra">
+        <button class="btn small" id="ferr-voltar">← Voltar</button>
+        <b id="ferr-titulo" class="grow"></b>
+        <button class="btn small" id="ferr-mandar" title="Entregar o projeto em uso de novo">📥 Projeto</button>
+        <button class="btn small primary" id="ferr-guardar">📌 Guardar relatório</button>
+      </div>
+      <div id="ferr-host"></div>
+    </section>
+  </main>
+
+  <nav id="abas">
+    <button data-aba="projetos">📁<span>Projetos</span></button>
+    <button data-aba="diagnostico">🩺<span>Diagnóstico</span></button>
+    <button data-aba="ferramentas">🧰<span>Ferramentas</span></button>
+    <button data-aba="comparar">⚖️<span>Comparar</span></button>
+    <button data-aba="relatorios">📋<span>Relatórios</span></button>
+  </nav>
+
+  <script src="js/00-core.js"></script>
+  <script src="js/20-zip.js"></script>
+  <script src="js/30-projeto.js"></script>
+  <script src="ferramentas/cirurgiao.js"></script>
+  <script src="ferramentas/raio-x.js"></script>
+  <script src="ferramentas/triagem.js"></script>
+  <script src="ferramentas/perito.js"></script>
+  <script src="js/40-ferramentas.js"></script>
+  <script src="js/50-relatorios.js"></script>
+  <script src="js/60-comparar.js"></script>
+  <script src="js/99-app.js"></script>
+</body>
+</html>
